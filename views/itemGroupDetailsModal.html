@@ -1,0 +1,93 @@
+<div class="modal-header">
+	<button type="button" class="close"
+		ng-click="AppCtrl.closeModalWindow()">&times;</button>
+	<h4 class="modal-title">{{::languageConstants.get('Modal
+		heading')}}</h4>
+</div>
+<div class="modal-body">
+{{itemGroupModule.selectedItemGroupListRow}}
+	<!-- Error Message -->
+	<div class="container-fluid">
+		<div class="alert alert-danger" role="alert"
+			ng-if="modelobject.childmodelobject.hasError">
+			<span>{{modelobject.childmodelobject.errorMessage}}</span>
+			<button type="button" class="close"
+				ng-click="modelobject.childmodelobject.hasError=false">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</div>
+	<div class="panel {{theme.panel}}">
+		<div class="table-responsive h5-padding-md">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<table class="inlineTable">
+						<tr class="h5-color-graphite">
+							<td><h5>{{::languageConstants.get('Item')}}</h5></td>
+							<td>:</td>
+							<td>{{modelobject.childmodelobject.itemNo +"
+								"+modelobject.childmodelobject.itemDescription}}</td>
+						</tr>
+						<tr class="h5-color-graphite">
+							<td><h5>{{::languageConstants.get('BalanceIdentity')}}</h5></td>
+							<td>:</td>
+							<td><ui-select class="h5-input-md {{theme.h5Dropdown}}"
+									ng-model="modelobject.childmodelobject.balanceId"
+									theme="bootstrap"> <ui-select-match
+									placeholder="Select Balance Identity" allow-clear=true
+									title="{{$select.selected.BANO + ' - ' +$select.selected.WHSL}}">{{$select.selected.BANO
+								+ ' ' +$select.selected.WHSL}}</ui-select-match> <ui-select-choices
+									repeat="balanceId in modelobject.childmodelobject.balanceIdList | filter: $select.search | limitTo:infiniteScroll.currentItems track by $index"
+									infinite-scroll="AppCtrl.addMoreItemsToScroll()"
+									infinite-scroll-distance="2"> <span
+									ng-bind-html="balanceId.BANO | highlight: $select.search"></span>
+								<small ng-bind-html="balanceId.WHSL | highlight: $select.search"></small></ui-select-choices>
+								</ui-select></td>
+						</tr>
+						<tr class="h5-color-graphite">
+							<td><h5>{{::languageConstants.get('Departure Date')}}</h5></td>
+							<td>:</td>
+							<td><div class="input-group datepicker h5-input-md">
+									<input name="departureDate"
+										uib-tooltip="{{languageConstants.get('Departure Date')}}"
+										placeholder="Departure Date..." type="date"
+										class="form-control" id="departureDate" uib-datepicker-popup
+										ng-model="modelobject.childmodelobject.departureDate.fromDate"
+										is-open="modelobject.childmodelobject.departureDate.fromDateOpen"
+										close-text="Close" /> <span class="input-group-btn">
+										<button type="button" class="btn btn-default"
+											ng-click="AppCtrl.openDatepicker($event)">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</button>
+									</span>
+								</div></td>
+						</tr>
+						<tr class="h5-color-graphite">
+							<td><h5>{{::languageConstants.get('Available
+									Quantity')}}</h5></td>
+							<td>:</td>
+							<td>{{modelobject.childmodelobject.balanceId.STQT}}</td>
+						</tr>
+						<tr class="h5-color-graphite">
+							<td><h5>{{::languageConstants.get('User Quantity')}}</h5></td>
+							<td>:</td>
+							<td><input type="number" class="h5-input-xs"
+								ng-model="modelobject.childmodelobject.userQuantity"
+								name="quantity" title="Quantity"></td>
+						</tr>
+					</table>
+					<div class="row h5-padding-md-t">
+						<div class="pager h5-margin-auto">
+							<ul>
+								<li><button class="h5Button {{theme.button}}"
+										ng-click="AppCtrl.closeModalWindow()">{{::languageConstants.get('Cancel')}}</button></li>
+								<li><button class="h5Button {{theme.button}}"
+										ng-click="AppCtrl.callThisFunction()">{{::languageConstants.get('Submit')}}</button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

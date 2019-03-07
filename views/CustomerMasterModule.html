@@ -1,0 +1,87 @@
+<div id="customerMasterModule">
+	<div class="panel {{theme.panel}}">
+		<div class="panel-heading h5-cursor-pointer"
+			ng-model="modelobject.collapseUIGrid1"
+			ng-mousedown="modelobject.collapseUIGrid1=!modelobject.collapseUIGrid1">
+			<img class="h5-icon" ng-src="img/selection-icon.png"
+				title="{{::languageConstants.get('Heading')}}" alt="" />{{::languageConstants.get('Customer
+			List')}}
+		</div>
+		<div id="customerMasterListGrid"
+			ui-grid="customerMasterModule.customerMasterListGrid"
+			ng-class="theme.h5Grid" class="h5Grid"
+			ng-if="!modelobject.collapseUIGrid1" ui-grid-selection
+			ui-grid-resize-columns ui-grid-move-columns ui-grid-auto-resize
+			ui-grid-cellNav ui-grid-exporter ui-grid-save-state ui-grid-pinning></div>
+		<div style="clear: both">
+
+
+			<div class="table-responsive h5-padding-md">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-3">
+						<table class="inlineTable">
+							<tr>
+								<th colspan="3" class="h5-padding-md-l h5-color-graphite-dark"><h4>{{::languageConstants.get('Item
+										Details')}}</h4></th>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Company')}}</h5></td>
+								<td>:</td>
+								<td>{{customerMasterModule.selectedCustomerMasterListRow.CONO}}</td>
+							</tr>
+
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Item data')}}</h5></td>
+								<td>:</td>
+								<td>{{customerMasterModule.selectedCustomerMasterListRow.ITNO + " -
+									" + customerMasterModule.selectedCustomerMasterListRow.ITDS}}</td>
+							</tr>
+							<tr>
+						</table>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-3">
+						<table class="inlineTable">
+							<tr>
+								<th colspan="3" class="h5-padding-md-l h5-color-graphite-dark"><h4>{{::languageConstants.get('Customer
+										Details')}}</h4></th>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Customer Name')}}</h5></td>
+								<td>:</td>
+								<td>{{customerMasterModule.selectedCustomerMasterListRow.CUNM + " - " + customerMasterModule.selectedCustomerMasterListRow.CUNO}}</td>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Customer Address')}}</h5></td>
+								<td>:</td>
+								<td>{{customerMasterModule.selectedCustomerMasterListRow.CUA1 + " - 
+									" + customerMasterModule.selectedCustomerMasterListRow.ECAR}}</td>
+								<td>{{customerMasterModule.selectedCustomerMasterListRow.PONO}}</td>
+								<td>{{customerMasterModule.selectedCustomerMasterListRow.CUA2}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-3">
+						<table class="inlineTable">
+							<tr>
+								<th colspan="3" class="h5-padding-md-l h5-color-graphite-dark"><h4>{{::languageConstants.get('Contact Info')}}</h4></th>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Contact Information')}}</h5></td>
+								<td>:</td>
+								<td>{{customerMasterModule.selectedCustomerMasterListRow.PHNO}}</td>
+								<td>{{customerMasterModule.selectedCustomerMasterListRow.PHN1}}</td>
+								<td>{{customerMasterModule.selectedCustomerMasterListRow.MAIL}}</td>
+							</tr>
+						</table>
+					</div>
+
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+	</div>
+</div>

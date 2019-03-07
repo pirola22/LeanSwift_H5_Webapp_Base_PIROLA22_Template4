@@ -1,0 +1,91 @@
+<div id="itemMasterModule">
+
+	<div class="panel {{theme.panel}}">
+		<div class="panel-heading h5-cursor-pointer"
+			ng-model="modelobject.collapseUIGrid1"
+			ng-mousedown="modelobject.collapseUIGrid1=!modelobject.collapseUIGrid1">
+			<img class="h5-icon" ng-src="img/selection-icon.png"
+				title="{{::languageConstants.get('Heading')}}" alt="" />{{::languageConstants.get('Item
+			List')}}
+		</div>
+		<div id="itemMasterListGrid"
+			ui-grid="itemMasterModule.itemMasterListGrid" ng-class="theme.h5Grid"
+			class="h5Grid" ng-if="!modelobject.collapseUIGrid1" ui-grid-selection
+			ui-grid-resize-columns ui-grid-move-columns ui-grid-auto-resize
+			ui-grid-cellNav ui-grid-exporter ui-grid-save-state ui-grid-pinning></div>
+		<div style="clear: both">
+
+
+			<div class="table-responsive h5-padding-md">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-3">
+						<table class="inlineTable">
+							<tr>
+								<th colspan="3" class="h5-padding-md-l h5-color-graphite-dark"><h4>{{::languageConstants.get('Item
+										Details')}}</h4></th>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Company')}}</h5></td>
+								<td>:</td>
+								<td>{{itemMasterModule.selectedItemMasterListRow.CONO}}</td>
+							</tr>
+
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Item data')}}</h5></td>
+								<td>:</td>
+								<td>{{itemMasterModule.selectedItemMasterListRow.ITNO + " -
+									" + itemMasterModule.selectedItemMasterListRow.ITDS}}</td>
+							</tr>
+							<tr>
+						</table>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-3">
+						<table class="inlineTable">
+							<tr>
+								<th colspan="3" class="h5-padding-md-l h5-color-graphite-dark"><h4>{{::languageConstants.get('Warehouse
+										Details')}}</h4></th>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Warehouse')}}</h5></td>
+								<td>:</td>
+								<td>{{itemMasterModule.selectedItemMasterListRow.WHLO + " -
+									" + itemMasterModule.selectedItemMasterListRow.WHNM}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-3">
+						<table class="inlineTable">
+							<tr>
+								<th colspan="3" class="h5-padding-md-l h5-color-graphite-dark"><h4>{{::languageConstants.get('Customer
+										Details')}}</h4></th>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Customer Number')}}</h5></td>
+								<td>:</td>
+								<td>{{itemMasterModule.selectedItemMasterListRow.BUYE }}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-3">
+						<table class="inlineTable">
+							<tr>
+								<th colspan="3" class="h5-padding-md-l h5-color-graphite-dark"><h4>{{::languageConstants.get('Order
+										Details')}}</h4></th>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Order Quantity')}}</h5></td>
+								<td>:</td>
+								<td>{{itemMasterModule.selectedItemMasterListRow.EOQT + " -
+									" + itemMasterModule.selectedItemMasterListRow.EOQM}}</td>
+							</tr>
+						</table>
+					</div>
+
+
+				</div>
+
+
+			</div>
+
+		</div>
+	</div>

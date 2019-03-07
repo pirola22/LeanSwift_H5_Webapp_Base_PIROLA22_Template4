@@ -1,0 +1,53 @@
+<div id="selectionView" class="container-fluid">
+	<div class="panel {{theme.panel}}">
+		<div class="panel-heading h5-cursor-pointer" ng-model="collapseSel" ng-click="collapseSel=!collapseSel">
+			<img class="h5-icon" ng-src="img/selection-icon.png" title="{{::languageConstants.get('Selection')}}" alt="" />{{::languageConstants.get('Selection')}}
+		</div>
+		<div class="table-responsive h5-padding-md" ng-if="!collapseSel">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<table class="inlineTable">
+						<tr class="h5-color-graphite">
+							<td><h5>{{::languageConstants.get('Division')}}(SampleDataList1)</h5></td>
+							<td>:</td>
+							<td><ui-select class="h5-input-md {{theme.h5Dropdown}}" ng-model="globalSelection.division.selected" theme="bootstrap"
+									on-select="AppCtrl.sampleData1Selected($item.DIVI)"> <ui-select-match placeholder="{{::languageConstants.get('SelectDivision')}}">{{$select.selected.DIVI
+								+ ' - ' +$select.selected.FACN}}</ui-select-match> <ui-select-choices
+									repeat="division.DIVI as division in globalSelection.divisionList | filter: $select.search track by division.DIVI"> <span
+									ng-bind-html="divivision.DIVI | highlight: $select.search"></span> <small ng-bind-html="division.FACN | highlight: $select.search"></small></ui-select-choices> </ui-select></td>
+						</tr>
+						<tr class="h5-color-graphite">
+							<td><h5>{{::languageConstants.get('Warehouse')}}(SampleDataList2)</h5></td>
+							<td>:</td>
+							<td><ui-select class="h5-input-md {{theme.h5Dropdown}}" ng-model="globalSelection.warehouse.selected" theme="bootstrap"
+									on-select="AppCtrl.sampleData1Selected($item.WHLO)"> <ui-select-match placeholder="Select Warehouse">{{$select.selected.WHLO
+								+ ' - ' +$select.selected.WHNM}}</ui-select-match> <ui-select-choices
+									repeat="warehouse.WHLO as warehouse in globalSelection.warehouseList | filter: $select.search track by warehouse.WHLO"> <span
+									ng-bind-html="warehouse.WHLO | highlight: $select.search"></span> - <small ng-bind-html="warehouse.WHNM | highlight: $select.search"></small></ui-select></td>
+						</tr>
+						
+						<tr class="h5-color-graphite">
+							<td><h5>{{::languageConstants.get('Facility')}}(facilityList)</h5></td>
+							<td>:</td>
+							<td><ui-select class="h5-input-md {{theme.h5Dropdown}}" ng-model="globalSelection.facility.selected" theme="bootstrap"
+									on-select="AppCtrl.sampleData1Selected($item.FACI)"> <ui-select-match placeholder="Select Facility">{{$select.selected.FACI
+								+ ' - ' +$select.selected.FACN}}</ui-select-match> <ui-select-choices
+									repeat="facility.FACI as facility in globalSelection.facilityList | filter: $select.search track by facility.FACI"> <span
+									ng-bind-html="facility.FACI | highlight: $select.search"></span> - <small ng-bind-html="facility.FACN | highlight: $select.search"></small></ui-select></td>
+						</tr>
+						
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="pager h5-margin-auto">
+						<ul>
+							<li><button class="h5Button {{theme.button}}" ng-click="AppCtrl.loadApplicationData()">{{::languageConstants.get('Find')}}</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

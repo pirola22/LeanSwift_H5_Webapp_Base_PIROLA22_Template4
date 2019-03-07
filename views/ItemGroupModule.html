@@ -1,0 +1,117 @@
+<div id="itemMasterModule">
+
+	<div class="panel {{theme.panel}}">
+		<div class="panel-heading h5-cursor-pointer"
+			ng-model="modelobject.collapseUIGrid1"
+			ng-mousedown="modelobject.collapseUIGrid1=!modelobject.collapseUIGrid1">
+			<img class="h5-icon" ng-src="img/selection-icon.png"
+				title="{{::languageConstants.get('Heading')}}" alt="" />{{::languageConstants.get('Item
+			Group List')}}
+		</div>
+		<div id="itemGroupListGrid"
+			ui-grid="itemGroupModule.itemGroupListGrid" ng-class="theme.h5Grid"
+			class="h5Grid" ng-if="!modelobject.collapseUIGrid1" ui-grid-selection
+			ui-grid-resize-columns ui-grid-move-columns ui-grid-auto-resize
+			ui-grid-cellNav ui-grid-exporter ui-grid-save-state ui-grid-pinning ui-grid-edit></div> <!-- ui-grid-edit to edit fields on the grid -->
+		<div style="clear: both">
+			<div class="table-responsive h5-padding-md">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-3">
+						<table class="inlineTable">
+							<tr>
+								<th colspan="3" class="h5-padding-md-l h5-color-graphite-dark"><h4>{{::languageConstants.get('Item
+										Group Description')}}</h4></th>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Item Group')}}</h5></td>
+								<td>:</td>
+								<td><input type="text" class="h5-input-xs"
+									ng-model="itemGroupModule.addItemGroup.ITGR"
+									name="ITGR" title="Item Group"></td>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Name')}}</h5></td>
+								<td>:</td>
+								<td><input type="text" class="h5-input-xs"
+									ng-model="itemGroupModule.addItemGroup.TX15"
+									name="ITGR" title="Item Group"></td>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Description')}}</h5></td>
+								<td>:</td>
+								<td><input type="text" class="h5-input-xs"
+									ng-model="itemGroupModule.addItemGroup.TX40"
+									name="ITGR" title="Item Group"></td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-3">
+						<table class="inlineTable">
+							<tr>
+								<th colspan="3" class="h5-padding-md-l h5-color-graphite-dark"><h4>{{::languageConstants.get('Curves')}}</h4></th>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Seasonal Curve')}}</h5></td>
+								<td>:</td>
+								<td><input type="text" class="h5-input-xs"
+									ng-model="itemGroupModule.addItemGroup.SECU"
+									name="ITGR" title="Item Group"></td>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Trend Curve')}}</h5></td>
+								<td>:</td>
+								<td><input type="text" class="h5-input-xs"
+									ng-model="itemGroupModule.addItemGroup.TECU"
+									name="ITGR" title="Item Group"></td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-3">
+						<table class="inlineTable">
+							<tr>
+								<th colspan="3" class="h5-padding-md-l h5-color-graphite-dark"><h4>{{::languageConstants.get('Weights')}}</h4></th>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Tolerance Catch
+										Weight')}}</h5></td>
+								<td>:</td>
+								<td><input type="text" class="h5-input-xs"
+									ng-model="itemGroupModule.addItemGroup.TCWQ"
+									name="ITGR" title="Item Group"></td>
+							</tr>
+							<tr class="h5-color-graphite">
+								<td><h5>{{::languageConstants.get('Tolerance Catch
+										Weight Percentage')}}</h5></td>
+								<td>:</td>
+								<td><input type="text" class="h5-input-xs"
+									ng-model="itemGroupModule.addItemGroup.TCWP"
+									name="ITGR" title="Item Group"></td>
+							</tr>
+						</table>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="pager h5-margin-auto">
+							<ul>
+
+								<li><button class="h5Button {{theme.button}}"
+										ng-click="AppCtrl.addItemGroup()">{{::languageConstants.get('Add')}}</button></li>
+								<li><button class="h5Button {{theme.button}}"
+										ng-click="AppCtrl.loadApplicationData()">{{::languageConstants.get('Update')}}</button></li>
+								<li><button class="h5Button {{theme.button}}"
+										ng-click="AppCtrl.loadApplicationData()">{{::languageConstants.get('Delete')}}</button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+
+
+	</div>
+</div>
